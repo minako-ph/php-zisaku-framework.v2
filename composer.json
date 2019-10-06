@@ -1,0 +1,13 @@
+{
+    "name": "minako-ph/super-yamaimo-framework",
+    "description": "Super Yamaimo Framework by minako-ph",
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^7.2",
+        "ext-intl": "^1.1",
+        "ext-mbstring": "^7.2"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
