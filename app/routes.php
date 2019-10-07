@@ -3,9 +3,7 @@
 $routes = [];
 
 $routes['/'] = function() {
-    echo "<!DOCTYPE html>\n";
-    echo "<p>素晴らしい山芋フレームワークへようこそ</p>\n";
-    exit;
+    include __DIR__ . '/../app/view/index.phtml';
 };
 
 $routes['/phpinfo.php'] = function () {
