@@ -11,6 +11,9 @@
         "sort-packages": true
     },
     "autoload": {
+        "psr-4": {
+            "SuperYamaimo\\": "src/"
+        },
         "files": ["src/functions.php"]
     }
 }

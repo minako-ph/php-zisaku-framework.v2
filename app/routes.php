@@ -1,11 +1,13 @@
 <?php
 
 $routes = [];
+$template = new \SuperYamaimo\TemplateFactory( __DIR__ . '/view/');
 
-$routes['/'] = function() {
-    ob_start();
-    include __DIR__ . '/../app/view/index.phtml';
-    return [200, ['Content-Type' => 'text/html'], ob_get_clean()];
+$routes['/'] = function() use ($template){
+    return [200, ['Content-Type' => 'text/html'], $template->create('index', [
+        'title' => 'オクラさんがフレームワークを作りました',
+        'name' => 'オクラさん'
+    ])];
 };
 
 $routes['/phpinfo.php'] = function () {
