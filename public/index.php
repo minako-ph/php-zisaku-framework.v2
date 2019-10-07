@@ -2,21 +2,13 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$routes = [];
+$routes = require __DIR__ . '/../app/routes.php';
+$request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-$routes['/'] = function() {
-    echo "<!DOCTYPE html>\n";
-    echo "<p>素晴らしい山芋フレームワークへようこそ</p>\n";
-};
-
-$routes['/phpinfo.php'] = function () {
-    phpinfo();
-};
-
-if (isset($routes[$_SERVER['REQUEST_URI']])) {
-    $f = $routes[$_SERVER['REQUEST_URI']];
+if (isset($routes[$request_uri])) {
+    $f = $routes[$request_uri];
     $f();
 } else {
-    http_response_code( response_code(404));
+    http_response_code(404);
     echo "<h1>404 Not Found</h1>";
 }
